@@ -1,0 +1,7 @@
+# jenkins_setup.yml
+---
+- name: jenkins server setup
+  hosts: jenkins-server
+  become: true
+  roles:
+    - ../roles/jenkins
