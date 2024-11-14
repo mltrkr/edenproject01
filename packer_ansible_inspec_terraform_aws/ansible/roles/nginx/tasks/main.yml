@@ -1,0 +1,13 @@
+- name: Install Nginx
+  vars:
+    packages:
+      - nginx-core
+  apt:
+    pkg: "{{ packages }}"
+    update_cache: yes
+    state: latest
+
+- name: Delete the default nginx landing page
+  file:
+    path: /var/www/html/index.nginx-debian.html
+    state: absent

@@ -1,0 +1,11 @@
+- name: Install PHP and some related packages
+  vars:
+    packages:
+      - php
+      - php-fpm
+      - php-cli
+      - php-curl
+  apt:
+    pkg: "{{ packages }}"
+    update_cache: yes
+    state: latest
