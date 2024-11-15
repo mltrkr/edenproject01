@@ -42,6 +42,9 @@ module "ecr" {
   source = "./modules/ecr"
 }
 
+# ---------------------------------------------------------------------------------------------------------------------
+# ROUTE TABLE ASSOCIATION
+# ---------------------------------------------------------------------------------------------------------------------
 resource "aws_route_table_association" "jenkins" {
   subnet_id      = module.subnet.jenkins_subnet
   route_table_id = module.vpc.igw-table
@@ -75,6 +78,9 @@ resource "aws_route_table_association" "eks-node-group" {
   route_table_id = module.vpc.nat-table
 }
 
+# ---------------------------------------------------------------------------------------------------------------------
+# ELASTIC IP
+# ---------------------------------------------------------------------------------------------------------------------
 resource "aws_eip" "current_ip" {
   instance = module.ec2.jenkins_instance_id
 }

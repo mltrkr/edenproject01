@@ -6,8 +6,8 @@ resource "aws_instance" "jenkins" {
   vpc_security_group_ids = var.vpc_security_group_ids
 
   root_block_device {
-    volume_size = 20  # 볼륨 크기를 GB 단위로 설정
-    delete_on_termination = true  # 인스턴스 종료 시 볼륨 삭제
+    volume_size = 20  # Set volume size in GB
+    delete_on_termination = true  # Delete volume when instance is terminated
   }
 
   tags = {
